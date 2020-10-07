@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
 	else
 		arquivoEntrada = argv[1];
 
-	// open a file handle to a particular file:
+	// abre um identificador de arquivo para um arquivo particular:
 	FILE *myfile = fopen(arquivoEntrada.c_str(), "r");
 
 /*	string arquivoSaida;
@@ -197,15 +197,15 @@ int main(int argc, char *argv[])
 	if(argc > 2)
 		arquivoSaida = argv[argc-1];*/
 
-	// make sure it is valid:
+	// certifica se é válido:
 	if (!myfile) {
 		printf("Desculpe-nos!! Não conseguimos abrir o arquivo: %s! \n", arquivoEntrada.c_str());
 		return -1;
 	}
-	// set flex to read from it instead of defaulting to STDIN:
+	// define o flex para ler a partir dele em vez de padronizar para STDIN:
 	yyin = myfile;
 	
-	// parse through the input until there is no more:
+	//analisa a entrada até que não haja mais:
 	do {
 		yyparse();
 	} while (!feof(yyin));
